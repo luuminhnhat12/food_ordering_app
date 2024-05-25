@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application_food_ordering/common/color_extension.dart';
 import 'package:flutter_application_food_ordering/component/custom_roundbutton.dart';
 import 'package:flutter_application_food_ordering/component/custom_roundbutton2.dart';
