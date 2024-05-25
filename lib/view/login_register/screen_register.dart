@@ -104,7 +104,14 @@ class _ScreenRegisterState extends State<ScreenRegister> {
               CustomRoundButton(
                 media: MediaQuery.sizeOf(context), 
                 text: "Sign Up", 
-                onPressed: (){}
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenLogin(),
+                    ),
+                  );
+                }
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height*0.09,
