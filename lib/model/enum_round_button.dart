@@ -1,0 +1,1 @@
+enum RoundButtonType { textprimary, bgprimary}
