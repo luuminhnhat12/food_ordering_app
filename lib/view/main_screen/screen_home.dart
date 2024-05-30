@@ -7,6 +7,8 @@ import 'package:flutter_application_food_ordering/component/custom_text.dart';
 import 'package:flutter_application_food_ordering/component/custom_textfield.dart';
 import 'package:flutter_application_food_ordering/component/custom_view_allTitle.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_category.dart';
+import 'package:flutter_application_food_ordering/model/model_food_item.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_my_oder.dart';
 class ScreenHome extends StatefulWidget {
   const ScreenHome({super.key});
@@ -79,17 +81,17 @@ class _ScreenHomeState extends State<ScreenHome> {
                       itemCount: Data().catArr.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: ((context, index) {
-                        var cart = Data().catArr[index];
+                        ModelCategory cart = Data().catArr[index];
                         return Container(
                           margin: const EdgeInsets.symmetric(horizontal: 6),
                           child: Column(
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(17),
-                                child: Image.asset(cart['image'], width: 85, height: 85, fit: BoxFit.cover)
+                                child: Image.asset(cart.image, width: 85, height: 85, fit: BoxFit.cover)
                               ),
                               const SizedBox(height: 4),
-                              CustomText(text: cart['name'], color: TColor.primaryText, size: 16, weight: FontWeight.w600),
+                              CustomText(text: cart.name, color: TColor.primaryText, size: 16, weight: FontWeight.w600),
                             ],
                             
                           ),
@@ -105,7 +107,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder:(context, index) {
-                      var pop = Data().popArr[index];
+                      ModelFoodItem pop = Data().popArr[index];
                       return CustomMostPRestaurant(pop: pop);
                     },
                   ),
@@ -119,7 +121,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                       itemCount: Data().mostPopArr.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: ((context, index) {
-                        var  mostPop = Data().mostPopArr[index];
+                        ModelFoodItem  mostPop = Data().mostPopArr[index];
                         return CustomMostPopular(mostPop: mostPop);
                       })
                     ),
@@ -133,7 +135,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder:(context, index) {
-                      var pop = Data().popArr[index];
+                      ModelFoodItem pop = Data().popArr[index];
                       return CustomRecent(pop: pop);
                     },
                   ),

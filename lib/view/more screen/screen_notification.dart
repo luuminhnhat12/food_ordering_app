@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_notification.dart';
 class ScreenNotification extends StatefulWidget {
   const ScreenNotification({super.key});
 
@@ -34,7 +35,7 @@ class _ScreenNotificationState extends State<ScreenNotification> {
               physics: const NeverScrollableScrollPhysics(),
               separatorBuilder: (BuildContext context, int index) => const Divider(),
               itemBuilder: (BuildContext context, int index) {
-                var noti = Data().notificationArr[index];
+                ModelNotification noti = Data().notificationArr[index];
                 return Row(
                     children: [
                       Icon(Icons.circle, size: 10,color: Colors.orange.shade400,),
@@ -43,8 +44,8 @@ class _ScreenNotificationState extends State<ScreenNotification> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(noti["title"].toString(), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                            Text(noti["time"].toString(), style: TextStyle(fontSize: 15),),
+                            Text(noti.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                            Text(noti.time, style: TextStyle(fontSize: 15),),
                           ],
                         ),
                       ),

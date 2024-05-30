@@ -3,6 +3,7 @@ import 'package:flutter_application_food_ordering/common/color_extension.dart';
 import 'package:flutter_application_food_ordering/component/custom_text.dart';
 import 'package:flutter_application_food_ordering/component/custom_textfield.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_menu.dart';
 import 'package:flutter_application_food_ordering/view/menu_screen/screen_menu_item.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_my_oder.dart';
 class ScreenMenu extends StatefulWidget {
@@ -60,7 +61,7 @@ class _ScreenMoreState extends State<ScreenMenu> {
                     shrinkWrap: true,
                     padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
                     itemBuilder: (context,index){
-                      var item = Data().menuArr[index];
+                      ModelMenu item = Data().menuArr[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenMenuItem(item: item)));
@@ -90,7 +91,7 @@ class _ScreenMoreState extends State<ScreenMenu> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Image.asset(
-                                  item["image"].toString(),
+                                  item.image.toString(),
                                   width: 80,
                                   height: 80,
                                   fit: BoxFit.contain,
@@ -102,11 +103,11 @@ class _ScreenMoreState extends State<ScreenMenu> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      CustomText(text: item['name'].toString(), color:TColor.primaryText, size: 20, weight: FontWeight.w500),
+                                      CustomText(text: item.name, color:TColor.primaryText, size: 20, weight: FontWeight.w500),
                                       const SizedBox(
                                         height: 4,
                                       ),
-                                      CustomText(text:"${item["items_count"].toString()} items",color:TColor.secondaryText,size:18,weight: FontWeight.w400,),
+                                      CustomText(text:"${item.itemsCount} items",color:TColor.secondaryText,size:18,weight: FontWeight.w400,),
                                     ],
                                   ),
                                 ),

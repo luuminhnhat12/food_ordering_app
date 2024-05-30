@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_food_ordering/common/color_extension.dart';
-import 'package:flutter_application_food_ordering/model/enum_round_button.dart';
+import 'package:flutter_application_food_ordering/model/enum/enum_round_button.dart';
 
 class CustomRoundButton extends StatelessWidget {
   final String text;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_food_ordering/common/color_extension.dart';
 import 'package:flutter_application_food_ordering/component/custom_roundbutton.dart';
-import 'package:flutter_application_food_ordering/model/enum_round_button.dart';
+import 'package:flutter_application_food_ordering/model/enum/enum_round_button.dart';
 import 'package:flutter_application_food_ordering/view/login_register/screen_login.dart';
 import 'package:flutter_application_food_ordering/view/login_register/screen_register.dart';
 class WelcomScreeen extends StatefulWidget {

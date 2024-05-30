@@ -4,6 +4,7 @@ import 'package:flutter_application_food_ordering/common/color_extension.dart';
 import 'package:flutter_application_food_ordering/component/custom_roundbutton.dart';
 import 'package:flutter_application_food_ordering/component/custom_text.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_menu_item.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_checkout.dart';
 class ScreenMyOrder extends StatefulWidget {
   const ScreenMyOrder({super.key});
@@ -95,7 +96,7 @@ class _ScreenMyOrderState extends State<ScreenMyOrder> {
                 separatorBuilder: (BuildContext context, int index) => const Divider(),
                 itemCount: Data().itemArr.length,
                 itemBuilder:(context,index){
-                  var item = Data().itemArr[index];
+                  ModelMenuItem item = Data().itemArr[index];
                   return Container(
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(218, 255, 255, 255),
@@ -105,13 +106,13 @@ class _ScreenMyOrderState extends State<ScreenMyOrder> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          text: "${item['name']} x${item['qty']}", 
+                          text: "${item.name} x${item.qty}", 
                           color: TColor.primaryText, 
                           size: 18,
                           weight: FontWeight.w500
                         ),
                         CustomText(
-                          text: "\$ ${item['price']}", 
+                          text: "\$ ${item.price}", 
                           color: TColor.secondaryText, 
                           size:20, 
                           weight: FontWeight.w400

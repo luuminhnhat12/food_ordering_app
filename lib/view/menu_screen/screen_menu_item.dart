@@ -4,6 +4,8 @@ import 'package:flutter_application_food_ordering/component/custom_text.dart';
 import 'package:flutter_application_food_ordering/component/custom_textfield.dart';
 
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_food_item.dart';
+import 'package:flutter_application_food_ordering/model/model_menu_item.dart';
 import 'package:flutter_application_food_ordering/view/menu_screen/screen_food_detail.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_my_oder.dart';
 
@@ -64,7 +66,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
               padding: const EdgeInsets.symmetric(horizontal: 6),
               itemCount: Data().menuItemsArr.length,
               itemBuilder: (context,index){
-                var item = Data().menuItemsArr[index];
+                ModelFoodItem item = Data().menuItemsArr[index];
                 return InkWell(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ScreenItemDetail()));
@@ -77,7 +79,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
                         alignment: Alignment.bottomLeft,
                         children: [
                           Image.asset(
-                            item['image'].toString(),
+                            item.image,
                             width: MediaQuery.of(context).size.width,
                             height: 200,
                             fit: BoxFit.cover
@@ -85,7 +87,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomText(text: item['name'], color: TColor.white, size:25, weight: FontWeight.w600),
+                              CustomText(text: item.name, color: TColor.white, size:25, weight: FontWeight.w600),
                               const SizedBox(height: 7),
                               Row(
                                 children: [
@@ -94,7 +96,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
                                     size: 20
                                   ),
                                   CustomText(
-                                    text: item['rate'].toString(), 
+                                    text: item.rate, 
                                     color: TColor.primary, 
                                     size: 19, 
                                     weight: FontWeight.w500
@@ -107,7 +109,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
                                   ),
                                   const SizedBox(width: 5),
                                   CustomText(
-                                    text: item['type'], 
+                                    text: item.type, 
                                     color: TColor.white, 
                                     size:17, 
                                     weight: FontWeight.w500
@@ -120,7 +122,7 @@ class _ScreenMenuItemState extends State<ScreenMenuItem> {
                                   ),
                                   const SizedBox(width:6 ),
                                   CustomText(
-                                    text: item['food_type'], 
+                                    text: item.foodType, 
                                     color: TColor.white, 
                                     size:17, 
                                     weight: FontWeight.w500

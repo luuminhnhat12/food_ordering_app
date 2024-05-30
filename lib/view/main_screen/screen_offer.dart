@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_food_ordering/common/color_extension.dart';
 import 'package:flutter_application_food_ordering/component/custom_text.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_food_item.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_my_oder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class ScreenOffer extends StatefulWidget {
@@ -77,18 +78,18 @@ class _ScreenOfferState extends State<ScreenOffer> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: Data().offerArr.length,
                 itemBuilder: (context,index){
-                  var object = Data().offerArr[index];
+                  ModelFoodItem object = Data().offerArr[index];
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10,),
                       Image.asset(
-                        object['image'].toString(),
+                        object.image,
                         width: MediaQuery.sizeOf(context).width,
                         height: 200,
                       ),
                       CustomText(
-                        text: object['name'].toString(), 
+                        text: object.name, 
                         color: TColor.primaryText, 
                         size: 19, 
                         weight: FontWeight.w600
@@ -110,7 +111,7 @@ class _ScreenOfferState extends State<ScreenOffer> {
                               print(rating);
                             },
                           ),
-                          CustomText(text: object['rate'].toString(), color: TColor.secondaryText, size: 18, weight: FontWeight.w500)
+                          CustomText(text: object.rate, color: TColor.secondaryText, size: 18, weight: FontWeight.w500)
                       ],)
                     ],
                   );

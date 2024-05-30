@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_food_ordering/data/data.dart';
+import 'package:flutter_application_food_ordering/model/model_menu_item.dart';
+import 'package:flutter_application_food_ordering/model/model_more.dart';
 import 'package:flutter_application_food_ordering/view/login_register/screen_login.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_about.dart';
 import 'package:flutter_application_food_ordering/view/more%20screen/screen_inbox.dart';
@@ -37,25 +39,26 @@ class _ScreenMoreState extends State<ScreenMore> {
                 shrinkWrap: true,
                 itemCount: Data().moreArr.length,
                 itemBuilder:(context, index) {
+                  ModelMore moreObject = Data().moreArr[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: InkWell(
                       onTap: () {
-                        if (Data().moreArr[index]['index'] == '1') {
+                        if (moreObject.index == '1') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>const ScreenPaymentDetails(),
                             ),
                           );
-                        } else if (Data().moreArr[index]['index'] == '2') {
+                        } else if (moreObject.index == '2') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => const ScreenMyOrder(),
                             ),
                           );
-                        } else if (Data().moreArr[index]['index'] == '3') {
+                        } else if (moreObject.index == '3') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -63,7 +66,7 @@ class _ScreenMoreState extends State<ScreenMore> {
                             ),
                           );
                         }
-                        else if (Data().moreArr[index]['index'] == '4') {
+                        else if (moreObject.index == '4') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -71,7 +74,7 @@ class _ScreenMoreState extends State<ScreenMore> {
                             ),
                           );
                         }
-                        else if (Data().moreArr[index]['index'] == '5') {
+                        else if (moreObject.index == '5') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -79,7 +82,7 @@ class _ScreenMoreState extends State<ScreenMore> {
                             ),
                           );
                         }
-                        else if (Data().moreArr[index]['index'] == '6') {
+                        else if (moreObject.index == '6') {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -107,12 +110,12 @@ class _ScreenMoreState extends State<ScreenMore> {
                           child: Row(
                             children: [
                               Image.asset(
-                                Data().moreArr[index]['image'],
+                                moreObject.image,
                                 height: 20,
                               ),
                               const SizedBox(width: 20),
                               Text(
-                                Data().moreArr[index]['name'],
+                                moreObject.name,
                                 style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -120,7 +123,7 @@ class _ScreenMoreState extends State<ScreenMore> {
                                 ),
                               ),
                               const Spacer(),
-                              if (Data().moreArr[index]['base'] != 0)
+                              if (moreObject.base != 0)
                                 Container(
                                   height: 20,
                                   width: 20,
@@ -130,7 +133,7 @@ class _ScreenMoreState extends State<ScreenMore> {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      Data().moreArr[index]['base'].toString(),
+                                      moreObject.base.toString(),
                                       style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 12,
