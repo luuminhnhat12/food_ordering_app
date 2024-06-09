@@ -1,7 +1,7 @@
 # flutter_application_food_ordering
 
 A new Flutter project.
-UI UX App Design by: [Akila Weerakoon](https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)
+UI UX App Design by: (https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
