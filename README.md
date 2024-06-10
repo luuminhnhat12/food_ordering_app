@@ -2,6 +2,7 @@
 
 A new Flutter project.
 UI UX App Design by: (https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)
+video demo: https://youtu.be/JQmKyJXLBHY
 ## Getting Started
 
 This project is a starting point for a Flutter application.
